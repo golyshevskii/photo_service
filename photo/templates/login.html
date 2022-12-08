@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Photo Servive | Login{% endblock %}
+
+{% block content %}
+<div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 600px;">
+    <form method="post" action="." class="shadow-lg bg-light pt-4 px-3" style="border-radius: 20px;">
+        {% csrf_token %}
+        <div class="shadow-sm mb-1" style="border-radius: 10px;">
+            <input required type="text" name="username" class="form-control" placeholder="username"
+                style="border-radius: 10px;" />
+        </div>
+        <div class="shadow-sm mb-3" style="border-radius: 10px;">
+            <input required type="password" name="password" class="form-control" placeholder="password"
+                style="border-radius: 10px;" />
+        </div>
+        <!-- d-grid gap-2 col-4 mx-auto -->
+        {% if val_err %}
+        <div class="d-flex justify-content-start mb-0">
+            <p>* {{ val_err }}</p>
+        </div>
+        {% endif %}
+        <div class="d-grid gap-2 col-8 mx-auto">
+            <button class="btn btn-warning btn-block mb-3" type="submit">LOGIN</button>
+        </div>
+        <div class="d-grid gap-2 col-8 text-center mx-auto">
+            <!-- <a class="mb-0" href="#">forgot password?</a> -->
+            <a href="#">sign up</p>
+        </div>
+    </form>
+</div>
+{% endblock %}

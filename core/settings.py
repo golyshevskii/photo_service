@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-%j%8ql--vdo+8^i4p@ql+76263$$q()1-%s@8in$dpd09!-t1f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -26,6 +26,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # apps
+    'photo',
+    # lb
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +122,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = 'mainpage'
+LOGOUT_REDIRECT_URL = 'mainpage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

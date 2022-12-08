@@ -13,11 +13,13 @@ docker-compose up -d
 ```
 
 ***
+> admin/admin
+
 ```http://0.0.0.0:8000/``` - main page
 
-```http://0.0.0.0:8000/signin``` - sign in page
+```http://0.0.0.0:8000/auth/login``` - login page
 
-```http://0.0.0.0:8000/signup``` - sign up page
+```http://0.0.0.0:8000/auth/signup``` - signup page
 
 ***
 

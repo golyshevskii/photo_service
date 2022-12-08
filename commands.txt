@@ -4,4 +4,4 @@
 
 3. docker-compose up -d || down
 
-4. docker exec -it django_app sh
+4. docker exec -it django sh
