@@ -1,0 +1,5 @@
+1. git clone https://github.com/golyshevskii/photo_service.git
+
+2. docker-compose run django django-admin startproject core .
+
+3. docker-compose up -d || down
