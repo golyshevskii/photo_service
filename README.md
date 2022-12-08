@@ -13,11 +13,12 @@ docker-compose up -d
 ```
 
 ***
+```http://0.0.0.0:8000/``` - main page
+
 ```http://0.0.0.0:8000/signin``` - sign in page
 
 ```http://0.0.0.0:8000/signup``` - sign up page
 
-```http://0.0.0.0:8000/photos``` - all photos
 ***
 
 > 3.1. If there are no tables (SQL errors):

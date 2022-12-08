@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    {% load static %}
+    {% load bootstrap5 %}
+    <title>{% block title %}Photo Service{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="shortcut icon" href="{% static 'images/rainbow.png' %}" sizes="32x32"/>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap5.css' %}">
+    <script src="{% static 'js/bootstrap5.js' %}"></script>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Photo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">mySpace</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="#">blabla</a>
+                        </li> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                more
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">messages</a></li>
+                                <li><a class="dropdown-item" href="#">rooms</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">support</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="search" aria-label="search">
+                        <button class="btn btn-outline-success" type="submit">search</button>
+                    </form>
+                    <a class="" href="{% url 'logoutpage' %}">logout</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
