@@ -70,11 +70,11 @@
                 <input class="form-control me-2" type="date" placeholder="date" name="date">
                 <button class="btn btn-outline-primary" type="submit">filter</button>
             </form>
-            <div class="gallery" id="gallery">
+            <div class="gallery">
             {% for post in photo %}
                 <div class="gallery-item">
                     <div class="content">
-                        <a href="{{ post.id }}">
+                        <a href="{% url 'photodetailspage' post.id %}">
                             <img src="{{ post.img.url }}" alt="{{ post.title }}">
                         </a>
                     </div>

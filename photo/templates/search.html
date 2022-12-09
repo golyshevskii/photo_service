@@ -49,11 +49,11 @@
             <a class="btn btn-primary px-3" href="{% url 'mainpage' %}"
             style="border-radius: 10px 10px 10px 10px;">back</a>
         </div>
-        <div class="gallery" id="gallery">
+        <div class="gallery">
         {% for post in photo %}
             <div class="gallery-item">
                 <div class="content">
-                    <a href="{{ post.id }}">
+                    <a href="{% url 'photodetailspage' post.id %}">
                         <img src="{{ post.img.url }}" alt="{{ post.title }}">
                     </a>
                 </div>

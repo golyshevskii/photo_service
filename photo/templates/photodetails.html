@@ -4,13 +4,30 @@
 
 {% block content %}
 <div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 600px;">
+    <div class="shadow-lg bg-light" style="border-radius: 20px;">
+        <a class="btn btn-primary btn-block px-3" href="{% url 'mainpage' %}" 
+        style="border-radius: 15px 0px 0px 15px;">back</a>
+    </div>
     <div class="shadow-lg bg-light pt-4 px-3" style="border-radius: 20px;">
-        <img src="{{ post.img.url }}" alt="{{ post.title }}">
-        <div class="shadow-sm mb-1" style="border-radius: 10px;">
+        <div class="text-center mb-3">
+            <img class="rounded" src="{{ photo.img.url }}" alt="{{ photo.title }}"
+            style="width: 350px; height: 350px;">
+        </div>
+        <div class="shadow-sm p-1 mb-1" style="border-radius: 10px;">
+            <h6>title</h6>
             {{ photo.title }}
         </div>
-        <div class="shadow-sm mb-3" style="border-radius: 10px;">
+        <div class="shadow-sm p-1 mb-1" style="border-radius: 10px;">
+            <h6>description</h6>
             {{ photo.desc }}
+        </div>
+        <div class="shadow-sm p-1 mb-1" style="border-radius: 10px;">
+            <h6>people on the photo</h6>
+            {{ photo.people }}
+        </div>
+        <div class="shadow-sm p-1 mb-4" style="border-radius: 10px;">
+            <h6>location</h6>
+            {{ photo.location }}
         </div>
     </div>
 </div>
