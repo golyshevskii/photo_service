@@ -9,7 +9,7 @@ git clone https://github.com/golyshevskii/photo_service.git
 ````
 2. Run docker containers 
 ``` 
-docker-compose up -d
+docker-compose up
 ```
 
 ***
