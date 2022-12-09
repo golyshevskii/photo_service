@@ -13,13 +13,17 @@ docker-compose up -d
 ```
 
 ***
-> admin/admin
+> admin auth: admin/admin ```http://0.0.0.0:8000/admin```
 
 ```http://0.0.0.0:8000/``` - main page
 
 ```http://0.0.0.0:8000/auth/login``` - login page
 
 ```http://0.0.0.0:8000/auth/signup``` - signup page
+
+```http://0.0.0.0:8000/yourposts``` - posts by user
+
+```http://0.0.0.0:8000/post``` - post new photo
 
 ***
 
