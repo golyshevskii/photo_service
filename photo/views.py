@@ -13,7 +13,7 @@ def main_page(request):
 
 def signup_page(request):
     """Function for sign up process"""
-    
+
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
