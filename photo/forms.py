@@ -9,7 +9,8 @@ class NewPostForm(forms.ModelForm):
     
     class Meta:
         model = Photo
-        fields = ['img', 'title', 'desc', 'people', 'location', 'tags']
+        fields = ('img', 'title', 'desc', 'people', 'location', 'tags',)
+        exclude = ('user',)
 
 
 class SignUpForm(UserCreationForm):

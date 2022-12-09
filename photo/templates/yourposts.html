@@ -6,10 +6,10 @@
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-4">
         <div class="container-fluid">
-            <a class="btn btn-primary btn-block px-2 " href="{% url 'newpostpage' %}">new post</a>
+            <a class="btn btn-primary btn-block px-2 mb-1" href="{% url 'newpostpage' %}">new post</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -28,8 +28,9 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex p-1">
-                    <input class="form-control me-2" type="search" placeholder="photo tag" aria-label="photo tag">
+                <form method="post" action="{% url 'searchpage' %}" class="d-flex p-1">
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="search by tag" name="search_tags">
                     <button class="btn btn-outline-primary" type="submit">search</button>
                 </form>
                 <a class="btn btn-primary btn-block" href="{% url 'logoutpage' %}">logout</a>
@@ -40,8 +41,10 @@
     <!-- photo by user -->
     <div class="container">
         {% if photo %}
+        <a class="btn btn-primary btn-block px-3 mb-3" href="{% url 'mainpage' %}"
+        style="border-radius: 10px 10px 10px 10px;">back</a>
         <div class="gallery" id="gallery">
-        {% for post in photo %}
+            {% for post in photo %}
             <div class="gallery-item">
                 <div class="content">
                     <a href="">
@@ -49,16 +52,16 @@
                     </a>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
         </div>
         {% else %}
         <div class="d-flex justify-content-center align-items-center" style="min-height: 500px;">
             <div class="shadow-lg bg-light" style="border-radius: 20px;">
-                <a class="btn btn-primary btn-block px-3" href="{% url 'mainpage' %}" 
-                style="border-radius: 15px 0px 0px 15px;">back</a>
+                <a class="btn btn-primary btn-block px-3" href="{% url 'mainpage' %}"
+                    style="border-radius: 15px 0px 0px 15px;">back</a>
             </div>
-            <div class="shadow-lg bg-light" style="border-radius: 10px;">
-                <h3 class="dropdown-item">void.</h3>
+            <div class="text-center shadow-lg bg-light" style="border-radius: 10px;">
+                <h3 style="width: 100px; height: 50px;">void.</h3>
             </div>
         </div>
         {% endif %}

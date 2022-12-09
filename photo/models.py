@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.safestring import mark_safe
 
 
 class Photo(models.Model):
@@ -15,6 +16,9 @@ class Photo(models.Model):
 
     class Meta:
         ordering = ['title', 'cr_dt']
+
+    def image_tag(self): # new
+        return mark_safe(f'<img src="{self.img.url}" width="100" height="100" />')
 
     def __str__(self):
         return self.title

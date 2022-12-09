@@ -18,10 +18,13 @@ def new_post_page(request):
     """Function for creation of a new post"""
 
     if request.method == 'POST':
-        form = NewPostForm(request.POST)
+        form = NewPostForm(request.POST, request.FILES)
+        
         if form.is_valid():
-            form.save()
-            return redirect('yourposts')
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            return redirect('yourpostspage')
     else:
         form = NewPostForm()
     
@@ -35,6 +38,20 @@ def your_posts_page(request):
     photo = Photo.objects.filter(user=request.user.id).all()
     
     return render(request, 'yourposts.html', context={'photo': photo})
+
+
+@login_required(login_url='/auth/login/')
+def search_page(request):
+    """Function for render posts by search bar"""
+    
+    if request.method == 'POST':
+        search = request.POST['search_tags']
+        photo = Photo.objects.filter(tags__contains=search).all()
+    else:
+        search = None
+        photo = None
+    
+    return render(request, 'search.html', context={'photo': photo, 'search': search})
 
 
 def signup_page(request):

@@ -1,22 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bootstrap5 %}
 {% block title %}Photo Servive | New Post{% endblock %}
 
 {% block content %}
 <div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 600px;">
     <div class="shadow-lg bg-light" style="border-radius: 20px;">
-        <a class="btn btn-primary btn-block px-3" href="{% url 'mainpage' %}" 
-        style="border-radius: 15px 0px 0px 15px;">back</a>
+        <a class="btn btn-primary btn-block px-3" href="{% url 'mainpage' %}"
+            style="border-radius: 15px 0px 0px 15px;">back</a>
     </div>
-    <form method="post" action="." class="shadow-lg bg-light pt-4 px-3" style="border-radius: 20px;">
+    <form method="post" action="." enctype="multipart/form-data"
+    class="shadow-lg bg-light pt-4 px-3" style="border-radius: 20px;">
         {% csrf_token %}
-        {{ form.as_p }}
-        <div class="shadow-sm mb-1" style="border-radius: 10px;">
-            <input required type="file" name="img" class="form-control" placeholder="photo"
+        <!-- {{ form.as_div }} -->
+        {% bootstrap_form form layout='inline'%}
+        <div class="mb-4"></div>
+        <!-- <div class="shadow-sm mb-1" style="border-radius: 10px;">
+            <input required type="file" name="img" class="form-control" placeholder="* photo"
                 style="border-radius: 10px;" />
         </div>
         <div class="shadow-sm mb-3" style="border-radius: 10px;">
-            <input required type="text" name="title" class="form-control" placeholder="title"
+            <input required type="text" name="title" class="form-control" placeholder="* title"
                 style="border-radius: 10px;" />
         </div>
         <div class="shadow-sm mb-1" style="border-radius: 10px;">
@@ -32,14 +36,17 @@
                 style="border-radius: 10px;" />
         </div>
         <div class="shadow-sm mb-3" style="border-radius: 10px;">
-            <input type="text" name="tags" class="form-control" placeholder="#tags"
-                style="border-radius: 10px;" />
-        </div>
-        <!-- d-grid gap-2 col-4 mx-auto -->
-        {% if val_err %}
-        <div class="d-flex justify-content-start mb-0">
-            <p>* {{ val_err }}</p>
-        </div>
+            <input type="text" name="tags" class="form-control" placeholder="#tags" style="border-radius: 10px;" />
+        </div> -->
+        <!-- errors -->
+        {% if form.errors %}
+            {% for f in form %}
+                {% for e in f.errors %}
+                <div class="d-flex justify-content-start mb-0">
+                    <p>* {{ e|escape }}</p>
+                </div>
+                {% endfor %}
+            {% endfor %}
         {% endif %}
         <div class="d-grid gap-2 col-8 mx-auto">
             <button class="btn btn-warning btn-block mb-3" type="submit">POST</button>

@@ -50,8 +50,9 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex p-1">
-                        <input class="form-control me-2" type="search" placeholder="photo tag" aria-label="photo tag">
+                    <form method="post" action="{% url 'searchpage' %}" class="d-flex p-1">
+                        {% csrf_token %}
+                        <input class="form-control me-2" type="search" placeholder="search by tag" name="search_tags">
                         <button class="btn btn-outline-primary" type="submit">search</button>
                     </form>
                     <a class="btn btn-primary btn-block" href="{% url 'logoutpage' %}">logout</a>
