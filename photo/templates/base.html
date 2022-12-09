@@ -15,12 +15,13 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap5.css' %}">
     <script src="{% static 'js/bootstrap5.js' %}"></script>
+    <script src="{% static 'js/photo.js' %}"></script>
 </head>
 
 <body>
     {% block content %}
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-4">
             <div class="container-fluid">
                 <a class="btn btn-primary btn-block px-2 " href="{% url 'newpostpage' %}">new post</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -55,6 +56,21 @@
                 </div>
             </div>
         </nav>
+
+        <!-- all photo -->
+        <div class="container">
+            <div class="gallery" id="gallery">
+            {% for post in photo %}
+                <div class="gallery-item">
+                    <div class="content">
+                        <a href="">
+                            <img src="{{ post.img.url }}" alt="{{ post.title }}">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
     </div>
     {% endblock %}
 </body>

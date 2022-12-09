@@ -7,7 +7,7 @@ class Photo(models.Model):
     title = models.CharField(verbose_name='Photo Title', max_length=50)
     desc = models.TextField(verbose_name='Photo Descriprion', blank=True, null=True)
     people = models.CharField(verbose_name='People on photo', max_length=255, blank=True, null=True)
-    loacation = models.CharField(verbose_name='Location of the photo', max_length=255, blank=True, null=True)
+    location = models.CharField(verbose_name='Location of the photo', max_length=255, blank=True, null=True)
     tags = models.CharField(verbose_name='Photo Search Tags', max_length=100, blank=True, null=True)
     cr_dt = models.DateTimeField(verbose_name='Photo Created Date', auto_now_add=True)
 
