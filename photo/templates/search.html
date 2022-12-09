@@ -6,8 +6,8 @@
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-4">
         <div class="container-fluid">
-            <a class="btn btn-primary btn-block px-2 mb-1 " href="{% url 'newpostpage' %}">new post</a>
-            <a class="btn btn-outline-primary px-2 mb-1" href="{% url 'yourpostspage' %}">your posts</a>
+            <a class="btn btn-primary btn-block px-2 mb-1 m-1" href="{% url 'newpostpage' %}">new post</a>
+            <a class="btn btn-outline-primary px-2 mb-1 m-1" href="{% url 'yourpostspage' %}">your posts</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,14 @@
 
     <!-- photo by user -->
     <div class="container">
+        <div class="d-inline-flex p-2 bg-dark text-white mb-3" style="border-radius: 10px;">
+            search tags: {{ search }}
+        </div>
         {% if search and photo %}
+        <div class="d-inline-flex p-1 text-white mb-3" style="border-radius: 10px;">
+            <a class="btn btn-primary px-3" href="{% url 'mainpage' %}"
+            style="border-radius: 10px 10px 10px 10px;">back</a>
+        </div>
         <div class="gallery" id="gallery">
         {% for post in photo %}
             <div class="gallery-item">
@@ -60,7 +67,7 @@
                 style="border-radius: 15px 0px 0px 15px;">back</a>
             </div>
             <div class="text-center shadow-lg bg-light" style="border-radius: 10px;">
-                <h3 style="width: 100px; height: 50px;">void.</h3>
+                <h3 style="width: 100px; height: 70px;">oops void.</h3>
             </div>
         </div>
         {% endif %}

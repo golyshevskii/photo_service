@@ -54,6 +54,30 @@ def search_page(request):
     return render(request, 'search.html', context={'photo': photo, 'search': search})
 
 
+@login_required(login_url='/auth/login/')
+def filter_page(request):
+    """Function for render posts by filter"""
+    
+    if request.method == 'POST':
+        filter_title = request.POST['title']
+        filter_date = request.POST['date']
+        filter_people = request.POST['people']
+        filter_location = request.POST['location']
+        photo = Photo.objects.filter(title__contains=filter_title,
+                                     cr_dt__contains=filter_date,
+                                     people__contains=filter_people,
+                                     location__contains=filter_location).all()
+    else:
+        filter_title, filter_date, filter_people, filter_location = None, None, None, None
+        photo = None
+    
+    return render(request, 'filter.html', context={'photo': photo,
+                                                   'filter_title': filter_title,
+                                                   'filter_date': filter_date,
+                                                   'filter_people': filter_people,
+                                                   'filter_location': filter_location})
+
+
 def signup_page(request):
     """Function for sign up process"""
 
