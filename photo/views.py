@@ -12,6 +12,7 @@ def main_page(request):
     photo = Photo.objects.all()
     return render(request, 'base.html', context={'photo': photo})
 
+
 @login_required(login_url='/auth/login/')
 def new_post_page(request):
     """Function for creation of a new post"""
@@ -20,11 +21,20 @@ def new_post_page(request):
         form = NewPostForm(request.POST)
         if form.is_valid():
             form.save()
-            # return redirect('yourposts')
+            return redirect('yourposts')
     else:
         form = NewPostForm()
     
     return render(request, 'newpost.html', context={'form': form})
+
+
+@login_required(login_url='/auth/login/')
+def your_posts_page(request):
+    """Function for render posts created by user"""
+
+    photo = Photo.objects.filter(user=request.user.id).all()
+    
+    return render(request, 'yourposts.html', context={'photo': photo})
 
 
 def signup_page(request):

@@ -10,6 +10,7 @@
     </div>
     <form method="post" action="." class="shadow-lg bg-light pt-4 px-3" style="border-radius: 20px;">
         {% csrf_token %}
+        {{ form.as_p }}
         <div class="shadow-sm mb-1" style="border-radius: 10px;">
             <input required type="file" name="img" class="form-control" placeholder="photo"
                 style="border-radius: 10px;" />

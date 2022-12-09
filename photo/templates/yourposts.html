@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Photo Servive | Sign Up{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-4">
+        <div class="container-fluid">
+            <a class="btn btn-primary btn-block px-2 " href="{% url 'newpostpage' %}">new post</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-1">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            FAQ
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">common questions</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">support</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex p-1">
+                    <input class="form-control me-2" type="search" placeholder="photo tag" aria-label="photo tag">
+                    <button class="btn btn-outline-primary" type="submit">search</button>
+                </form>
+                <a class="btn btn-primary btn-block" href="{% url 'logoutpage' %}">logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- photo by user -->
+    <div class="container">
+        {% if photo %}
+        <div class="gallery" id="gallery">
+        {% for post in photo %}
+            <div class="gallery-item">
+                <div class="content">
+                    <a href="">
+                        <img src="{{ post.img.url }}" alt="{{ post.title }}">
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        {% else %}
+        <div class="d-flex justify-content-center align-items-center" style="min-height: 500px;">
+            <div class="shadow-lg bg-light" style="border-radius: 20px;">
+                <a class="btn btn-primary btn-block px-3" href="{% url 'mainpage' %}" 
+                style="border-radius: 15px 0px 0px 15px;">back</a>
+            </div>
+            <div class="shadow-lg bg-light" style="border-radius: 10px;">
+                <h3 class="dropdown-item">void.</h3>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
