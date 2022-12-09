@@ -1,14 +1,30 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm
+from .forms import SignUpForm, NewPostForm
+from .models import Photo
 
 
 @login_required(login_url='/auth/login/')
 def main_page(request):
-    """Function for render main page"""
+    """Function for rendering main page"""
 
-    return render(request, 'base.html')
+    photo = Photo.objects.all()
+    return render(request, 'base.html', context={'photo': photo})
+
+@login_required(login_url='/auth/login/')
+def new_post_page(request):
+    """Function for creation of a new post"""
+
+    if request.method == 'POST':
+        form = NewPostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # return redirect('yourposts')
+    else:
+        form = NewPostForm()
+    
+    return render(request, 'newpost.html', context={'form': form})
 
 
 def signup_page(request):

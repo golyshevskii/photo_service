@@ -14,7 +14,7 @@ class Photo(models.Model):
     user = models.ForeignKey(User, verbose_name='Created By User', on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ['title']
+        ordering = ['title', 'cr_dt']
 
     def __str__(self):
         return self.title

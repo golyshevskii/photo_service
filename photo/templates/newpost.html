@@ -1,25 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Photo Servive | Sign Up{% endblock %}
+{% block title %}Photo Servive | New Post{% endblock %}
 
 {% block content %}
 <div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 600px;">
     <form method="post" action="." class="shadow-lg bg-light pt-4 px-3" style="border-radius: 20px;">
         {% csrf_token %}
         <div class="shadow-sm mb-1" style="border-radius: 10px;">
-            <input required type="text" name="username" class="form-control" placeholder="username"
+            <input required type="file" name="img" class="form-control" placeholder="photo"
                 style="border-radius: 10px;" />
         </div>
         <div class="shadow-sm mb-3" style="border-radius: 10px;">
-            <input required type="text" name="email" class="form-control" placeholder="email"
+            <input required type="text" name="title" class="form-control" placeholder="title"
                 style="border-radius: 10px;" />
         </div>
         <div class="shadow-sm mb-1" style="border-radius: 10px;">
-            <input required type="password" name="password1" class="form-control" placeholder="password"
+            <input type="text" name="desc" class="form-control" placeholder="description"
+                style="border-radius: 10px;" />
+        </div>
+        <div class="shadow-sm mb-1" style="border-radius: 10px;">
+            <input type="text" name="people" class="form-control" placeholder="people on the photo"
+                style="border-radius: 10px;" />
+        </div>
+        <div class="shadow-sm mb-1" style="border-radius: 10px;">
+            <input type="text" name="location" class="form-control" placeholder="location"
                 style="border-radius: 10px;" />
         </div>
         <div class="shadow-sm mb-3" style="border-radius: 10px;">
-            <input required type="password" name="password2" class="form-control" placeholder="repeat password"
+            <input type="text" name="tags" class="form-control" placeholder="#tags"
                 style="border-radius: 10px;" />
         </div>
         <!-- d-grid gap-2 col-4 mx-auto -->
@@ -29,11 +37,11 @@
         </div>
         {% endif %}
         <div class="d-grid gap-2 col-8 mx-auto">
-            <button class="btn btn-warning btn-block mb-3" type="submit">SIGN UP</button>
+            <button class="btn btn-warning btn-block mb-3" type="submit">POST</button>
         </div>
         <div class="d-grid gap-2 col-8 text-center mx-auto">
             <!-- <a class="mb-0" href="#">forgot password?</a> -->
-            <a href="{% url 'loginpage' %}">back</p>
+            <a href="{% url 'mainpage' %}">back</p>
         </div>
     </form>
 </div>
