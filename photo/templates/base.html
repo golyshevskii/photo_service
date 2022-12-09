@@ -74,7 +74,7 @@
             {% for post in photo %}
                 <div class="gallery-item">
                     <div class="content">
-                        <a href="">
+                        <a href="{{ post.id }}">
                             <img src="{{ post.img.url }}" alt="{{ post.title }}">
                         </a>
                     </div>

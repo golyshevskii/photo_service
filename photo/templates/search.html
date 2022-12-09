@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Photo Servive | Sign Up{% endblock %}
+{% block title %}Photo Servive | Search{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
@@ -53,7 +53,7 @@
         {% for post in photo %}
             <div class="gallery-item">
                 <div class="content">
-                    <a href="">
+                    <a href="{{ post.id }}">
                         <img src="{{ post.img.url }}" alt="{{ post.title }}">
                     </a>
                 </div>
@@ -62,12 +62,12 @@
         </div>
         {% else %}
         <div class="d-flex justify-content-center align-items-center" style="min-height: 500px;">
-            <div class="shadow-lg bg-light" style="border-radius: 20px;">
+            <div class="shadow-lg bg-light" style="border-radius: 10px;">
                 <a class="btn btn-primary btn-block px-3" href="{% url 'mainpage' %}" 
                 style="border-radius: 15px 0px 0px 15px;">back</a>
             </div>
             <div class="text-center shadow-lg bg-light" style="border-radius: 10px;">
-                <h3 style="width: 100px; height: 70px;">oops void.</h3>
+                <h3 style="width: 100px; height: 70px;">oops void</h3>
             </div>
         </div>
         {% endif %}

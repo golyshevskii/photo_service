@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Photo Servive | Login{% endblock %}
+
+{% block content %}
+<div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 600px;">
+    <div class="shadow-lg bg-light pt-4 px-3" style="border-radius: 20px;">
+        <img src="{{ post.img.url }}" alt="{{ post.title }}">
+        <div class="shadow-sm mb-1" style="border-radius: 10px;">
+            {{ photo.title }}
+        </div>
+        <div class="shadow-sm mb-3" style="border-radius: 10px;">
+            {{ photo.desc }}
+        </div>
+    </div>
+</div>
+{% endblock %}

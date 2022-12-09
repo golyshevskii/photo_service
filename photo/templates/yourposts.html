@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Photo Servive | Sign Up{% endblock %}
+{% block title %}Photo Servive | You Posts{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
@@ -47,7 +47,7 @@
             {% for post in photo %}
             <div class="gallery-item">
                 <div class="content">
-                    <a href="">
+                    <a href="{{ post.id }}">
                         <img src="{{ post.img.url }}" alt="{{ post.title }}">
                     </a>
                 </div>

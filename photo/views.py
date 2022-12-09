@@ -77,6 +77,11 @@ def filter_page(request):
                                                    'filter_people': filter_people,
                                                    'filter_location': filter_location})
 
+@login_required(login_url='/auth/login/')
+def photo_details_page(request, id):
+    photo = Photo.objects.filter(id=id).first()
+    return render(request, 'photodetails.html', context={'photo': photo})
+
 
 def signup_page(request):
     """Function for sign up process"""
